@@ -2,7 +2,15 @@ import React, { Component } from "react";
 import { ImageBackground, View } from "react-native";
 
 // NativeBase Components
-import { ListItem, Card, CardItem, Thumbnail, Text, Left } from "native-base";
+import {
+  ListItem,
+  Card,
+  CardItem,
+  Thumbnail,
+  Text,
+  Left,
+  H1
+} from "native-base";
 
 // Style
 import styles from "./styles";
@@ -13,8 +21,12 @@ class CoffeeItem extends Component {
   };
   render() {
     const { coffeeShop } = this.props;
+
     return (
-      <ImageBackground source={coffeeShop.background} style={styles.background}>
+      <ImageBackground
+        source={{ uri: coffeeShop.background }}
+        style={styles.background}
+      >
         <View style={styles.overlay} />
         <ListItem button onPress={this.handlePress} style={styles.listitem}>
           <Card style={styles.transparent}>
@@ -22,7 +34,7 @@ class CoffeeItem extends Component {
               <Left>
                 <Thumbnail
                   bordered
-                  source={coffeeShop.img}
+                  source={{ uri: coffeeShop.img }}
                   style={styles.thumbnail}
                 />
                 <Text style={styles.text}>{coffeeShop.name}</Text>

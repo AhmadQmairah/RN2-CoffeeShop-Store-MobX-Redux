@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { connect } from "react-redux";
 // NativeBase Components
 import { Text, Left, Body, Right, Button, ListItem, Icon } from "native-base";
 
@@ -27,4 +27,12 @@ class CartItem extends Component {
   }
 }
 
-export default CartItem;
+const mapStateToProps = state => {
+  return {
+    items: state.cart.items,
+    coffeeShops: state.coffee.coffeeShops,
+    loading: state.coffee.loading
+  };
+};
+
+export default connect(mapStateToProps)(CartItem);
